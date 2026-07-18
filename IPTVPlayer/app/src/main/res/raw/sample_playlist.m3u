@@ -1,0 +1,22 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-name="Big Buck Bunny (DASH)" tvg-logo="" group-title="Demo",Big Buck Bunny (DASH)
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd
+
+#EXTINF:-1 tvg-name="Tears of Steel (DASH)" tvg-logo="" group-title="Demo",Tears of Steel (DASH)
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+https://dash.akamaized.net/akamai/streamroot/050714/Manifest.mpd
+
+#EXTINF:-1 tvg-name="Apple HLS Test Stream" tvg-logo="" group-title="Demo",Apple HLS Test Stream
+https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8
+
+# --- Template: how to add a DRM-protected DASH channel of your own -------
+# (Replace the placeholder license URL/key values below with your own
+#  legally licensed content's real values before uncommenting.)
+#
+#EXTINF:-1 tvg-name="My Licensed Channel" group-title="My Channels",My Licensed Channel
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=https://your-own-license-server.example/key?id=YOUR_ID
+#https://your-own-cdn.example/path/index.mpd|User-Agent=YourApp/1.0

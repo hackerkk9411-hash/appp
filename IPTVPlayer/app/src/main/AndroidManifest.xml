@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- App works on both phones and TV. Touchscreen not required so it installs on TV. -->
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:banner="@drawable/tv_banner"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.IPTVPlayer"
+        android:usesCleartextTraffic="true">
+
+        <!-- Phone / tablet launcher entry point: token gate shown first -->
+        <activity
+            android:name=".ui.TokenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.IPTVPlayer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.IPTVPlayer" />
+
+        <activity
+            android:name=".ui.AddPlaylistActivity"
+            android:exported="false"
+            android:theme="@style/Theme.IPTVPlayer" />
+
+        <!-- Android TV launcher entry point (Leanback home screen row) -->
+        <activity
+            android:name=".tv.TvMainActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.Leanback">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".player.PlayerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.IPTVPlayer.Player" />
+
+    </application>
+
+</manifest>
